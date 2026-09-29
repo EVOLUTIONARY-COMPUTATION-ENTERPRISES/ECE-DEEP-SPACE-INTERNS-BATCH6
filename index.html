@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ECE Explorer-1 Visualizer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div><p class="eyebrow">EVOLUTIONARY COMPUTATION ENTERPRISES</p><h1>ECE Explorer-1</h1><p class="subtitle">Dataset-driven conceptual shuttle visualizer</p></div>
+    <span class="status"><i></i> CONCEPTUAL DESIGN</span>
+  </header>
+  <main>
+    <section class="notice"><strong>Engineering boundary:</strong> the spacecraft image is an illustrative SVG generated from the supplied dataset values. It is not a flight-certified vehicle, performance model, or aerospace engineering validation.</section>
+    <section class="layout">
+      <article class="panel visual-panel">
+        <div class="panel-title"><div><p class="eyebrow">DATASET RENDERING</p><h2>Space shuttle concept</h2></div><span class="badge">ECE-1</span></div>
+        <div class="scene"><svg id="shuttle" viewBox="0 0 800 430" role="img" aria-label="Illustrative ECE Explorer-1 shuttle drawing">
+          <defs><linearGradient id="hull" x1="0" x2="1"><stop stop-color="#c6e8f4"/><stop offset=".55" stop-color="#6d9fb7"/><stop offset="1" stop-color="#d9f5ff"/></linearGradient><linearGradient id="wing"><stop stop-color="#35647f"/><stop offset="1" stop-color="#8fc3d6"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5"/></filter></defs>
+          <ellipse cx="405" cy="355" rx="280" ry="18" fill="#54e4df" opacity=".2" filter="url(#glow)"/>
+          <g id="shuttleModel" transform="translate(115 60)">
+            <path id="shuttleWings" d="M20 190 L205 120 L535 150 L610 205 L530 260 L205 280 L20 220Z" fill="url(#wing)" stroke="#bcecff" stroke-width="3"/>
+            <path id="shuttleHull" d="M185 130 L470 135 Q540 145 570 205 Q540 260 470 270 L185 275 Q125 205 185 130Z" fill="url(#hull)" stroke="#e8fbff" stroke-width="4"/>
+            <path d="M470 145 Q540 160 575 205 Q540 250 470 265 Q495 205 470 145Z" fill="#dff8ff" opacity=".35"/>
+            <path d="M145 155 L205 132 L245 137 L205 175Z" fill="#193e5d" stroke="#8ee7f1" stroke-width="3"/>
+            <path d="M234 139 L278 138 L250 176 L205 175Z" fill="#25516c" stroke="#8ee7f1" stroke-width="3"/>
+            <path d="M277 138 L322 139 L295 178 L250 176Z" fill="#193e5d" stroke="#8ee7f1" stroke-width="3"/>
+            <path id="payloadBay" d="M235 190 L465 185 L500 225 L235 230Z" fill="#1a3548" stroke="#79d8df" stroke-width="2"/>
+            <path d="M205 277 L265 288 L245 310 L177 281Z M530 270 L470 283 L492 308 L559 273Z" fill="#557e91" stroke="#bcecff" stroke-width="3"/>
+            <g id="engineCluster" fill="#ef9e4d" stroke="#ffdb8a" stroke-width="2"><circle cx="505" cy="205" r="13"/><circle cx="537" cy="205" r="13"/><circle cx="569" cy="205" r="13"/></g>
+            <text id="shuttleLabel" x="295" y="218" fill="#d9fbff" font-size="18" font-weight="700" letter-spacing="3">ECE-1</text>
+          </g>
+          <g class="dimension"><line id="lengthDimension" x1="135" y1="390" x2="675" y2="390"/><text id="lengthLabel" x="350" y="418">37.5 m LENGTH</text><line id="spanDimension" x1="110" y1="120" x2="110" y2="300"/><text id="spanLabel" x="22" y="215" transform="rotate(-90 22 215)">24.0 m WINGSPAN</text></g>
+        </svg></div>
+        <div id="specs" class="specs"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-title"><div><p class="eyebrow">DESIGN PROFILE</p><h2>Dataset values</h2></div></div>
+        <div id="profile" class="profile"></div>
+        <p class="caption">The graphic uses proportional cues for the supplied length, wingspan, height, mass, payload, engines, boosters, tanks, and crew range.</p>
+      </article>
+    </section>
+    <section class="panel builder-panel">
+      <div class="panel-title"><div><p class="eyebrow">AI-TUNED EVOLUTIONARY ENGINE</p><h2>Build ECE Explorer-1 with real-time ISRO dataset parameter tuning</h2></div><span id="builderState" class="badge">STAGE 1</span></div>
+      <p class="caption">The neuro-heuristic AI parameter model dynamically tunes mutation rates, crossover probabilities, and elitism thresholds conditioned on empirical ISRO mission survival data.</p>
+      <div class="builder-grid">
+        <div class="builder-controls">
+          <label>ISRO Calibration Domain
+            <select id="isroDomainSelect">
+              <option value="TOTAL">Fleet Baseline (90.37% Evolved · 135 Missions)</option>
+              <option value="Earth Observation">Earth Observation (86.0% Evolved · 50 Missions)</option>
+              <option value="Communication Satellites">Communication Satellites (90.7% Evolved · 43 Missions)</option>
+              <option value="Navigation Satellites">Navigation Satellites (100.0% Evolved · 11 Missions)</option>
+              <option value="Space Science Missions">Space Science Missions (100.0% Evolved · 7 Missions)</option>
+              <option value="Technology Demonstration Missions">Technology Demonstration (91.67% Evolved · 24 Missions)</option>
+            </select>
+          </label>
+          <label>Mission objective
+            <select id="buildObjective">
+              <option value="balanced">Balanced deep-space shuttle</option>
+              <option value="payload">Maximize payload efficiency</option>
+              <option value="crew">Maximize crew support</option>
+              <option value="reliability">Maximize reliability & resilience</option>
+            </select>
+          </label>
+          
+          <div class="ai-tuner-box">
+            <div class="ai-tuner-header">
+              <span class="ai-badge">AI PARAMETER TUNER</span>
+              <span id="aiTuningState" class="ai-state">CALIBRATED</span>
+            </div>
+            <div class="ai-params-grid">
+              <div class="ai-param-item">
+                <span>Mutation Rate (&mu;)</span>
+                <strong id="aiMutation">7.4%</strong>
+                <div class="param-bar"><div id="aiMutationBar" style="width: 37%"></div></div>
+              </div>
+              <div class="ai-param-item">
+                <span>Crossover Rate (p<sub>c</sub>)</span>
+                <strong id="aiCrossover">94.9%</strong>
+                <div class="param-bar"><div id="aiCrossoverBar" style="width: 95%"></div></div>
+              </div>
+              <div class="ai-param-item">
+                <span>Elitism Ratio (e)</span>
+                <strong id="aiElitism">22.5%</strong>
+                <div class="param-bar"><div id="aiElitismBar" style="width: 45%"></div></div>
+              </div>
+              <div class="ai-param-item">
+                <span>Convergence Horizon</span>
+                <strong id="aiConvergence">~11 gens</strong>
+                <span class="subtext" id="aiEntropyText">H = 0.46</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="builder-inputs-row">
+            <label style="flex:1">Population size<input id="populationSize" type="number" min="20" max="300" value="80"></label>
+            <label style="flex:1">Target fitness<input id="targetFitness" type="range" min="90" max="99" value="96"><output id="targetFitnessValue">96/100</output></label>
+          </div>
+
+          <div class="exec-controls">
+            <div class="exec-buttons">
+              <button id="autoRunButton" class="button auto-btn">⚡ Auto-Evolve (Real-Time)</button>
+              <button id="stageButton" class="button primary">Stage 1: Initialize brief</button>
+            </div>
+            <div class="exec-secondary">
+              <label class="speed-label">Speed:
+                <select id="simSpeed">
+                  <option value="180">Normal (180ms)</option>
+                  <option value="70">Fast (70ms)</option>
+                  <option value="18">Turbo (18ms)</option>
+                </select>
+              </label>
+              <button id="resetBuilder" class="button reset-btn" disabled>Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-status">
+          <div class="generation-cards four-cards">
+            <div><b>GENERATION</b><strong id="generation">0</strong></div>
+            <div><b>BEST FITNESS</b><strong id="bestFitness">—</strong></div>
+            <div><b>GENETIC DIVERSITY</b><strong id="diversityVal">—</strong></div>
+            <div><b>ISRO 90.4% BASELINE</b><strong id="benchmarkDelta" style="color:var(--gold)">TARGET</strong></div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-header">
+              <span>REAL-TIME FITNESS vs. ISRO 90.37% BENCHMARK</span>
+              <span class="chart-legend">
+                <span><i class="c-dot green"></i> Best</span>
+                <span><i class="c-dot cyan"></i> Avg</span>
+                <span><i class="c-dot gold"></i> ISRO 90.4%</span>
+              </span>
+            </div>
+            <canvas id="fitnessCanvas" width="560" height="130"></canvas>
+          </div>
+          <div class="progress"><span id="fitnessProgress"></span></div>
+          <div id="stageLog" class="stage-log"><div class="empty">The user-controlled evolutionary stages will appear here.</div></div>
+        </div>
+      </div>
+      <div id="builderTable" class="table-wrap"></div>
+    </section>
+    <section class="panel isro-panel">
+      <div class="panel-title">
+        <div>
+          <p class="eyebrow">AEROSPACE LINEAGE TELEMETRY</p>
+          <h2>Evolution vs. Extinction Dynamics</h2>
+        </div>
+        <div class="isro-header-actions">
+          <div class="mode-toggle-group">
+            <button id="btnRealtimeMode" class="mode-btn active" title="Show simulated proportions reacting to AI parameters">⚡ Dynamic Simulation</button>
+            <button id="btnHistoricalMode" class="mode-btn" title="Show original static 1975–present ISRO dataset">📊 Static Benchmark</button>
+          </div>
+          <span class="badge" id="isroSectionBadge">PARAMETER REACTIVE</span>
+        </div>
+      </div>
+      <p class="caption" id="isroSectionCaption">Dynamic parameter-reactive mode active: survival and extinction proportions shift live based on mutation pressure, elitism retention, and active generation fitness.</p>
+      
+      <div class="isro-metrics" id="isroMetrics"></div>
+      
+      <div class="isro-grid">
+        <div class="isro-visual-wrap">
+          <div class="visual-header-row">
+            <h3 class="panel-subtitle" id="barsTitle">Simulated Evolution vs. Extinction Proportions</h3>
+            <span class="live-pulse" id="liveIndicator"><i></i> LIVE PARAMETER SYNC</span>
+          </div>
+
+          <div class="live-pop-bar-wrap" id="livePopWrap">
+            <div class="live-pop-labels">
+              <span><strong>Active Population Survival:</strong> Gen <span id="livePopGen">0</span></span>
+              <span id="livePopStats">80 Genomes (100% Viable)</span>
+            </div>
+            <div class="live-pop-track">
+              <div id="livePopEvolved" class="isro-bar-evolved" style="width: 100%"></div>
+              <div id="livePopExtinct" class="isro-bar-extinct" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div id="isroBars" class="isro-bars"></div>
+          <div class="isro-legend">
+            <span><i class="legend-dot dot-evolved"></i> Evolved / Viable</span>
+            <span><i class="legend-dot dot-extinct"></i> Extinct / Culled</span>
+            <span id="legendModeNote" style="margin-left:auto;color:var(--gold)">Reactive to &mu;, e, and generation fitness</span>
+          </div>
+        </div>
+        <div class="isro-insight-box" id="isroInsightBox">
+          <h3 class="panel-subtitle">Architectural Lineage Insight</h3>
+          <div id="isroInsightContent" class="insight-content">
+            <strong id="isroInsightTitle">Select a mission group below</strong>
+            <p id="isroInsightDesc">Click any category in the dataset table to inspect its evolutionary lineage dynamics, attrition drivers, and mission architecture retention.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap isro-table-wrap">
+        <table id="isroTable">
+          <thead>
+            <tr>
+              <th>Mission Group</th>
+              <th>Total Missions</th>
+              <th>Evolved</th>
+              <th>Extinct</th>
+              <th>Evolution Rate</th>
+              <th>Extinction Rate</th>
+              <th>Lineage Health</th>
+            </tr>
+          </thead>
+          <tbody id="isroTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="panel-title"><div><p class="eyebrow">COMPARISON</p><h2>ECE Explorer-1 vs traditional aerospace design</h2></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Dimension</th><th>ECE Explorer-1 concept</th><th>Traditional aerospace approach</th><th>Difference</th></tr></thead><tbody id="comparison"></tbody></table></div>
+      <p class="caption">“Traditional” describes a conventional systems-engineering workflow at a high level; it is not a comparison against one specific certified vehicle.</p>
+    </section>
+  </main>
+  <footer>ECE Explorer-1 Visualizer · Dataset values rendered as an illustrative concept</footer>
+  <script src="app.js?v=7"></script>
+</body>
+</html>
